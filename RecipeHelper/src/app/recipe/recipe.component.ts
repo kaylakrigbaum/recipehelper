@@ -11,7 +11,7 @@ export class RecipeComponent implements OnInit {
 
   recipes: any;
   displayedColumns = ['title', 'ingredients', 'instructions'];
-  dataSource = new RecipeDataSource(this.api);
+  dataSource = new RecipesDataSource(this.api);
 
   constructor(private api: ApiService) {
   }

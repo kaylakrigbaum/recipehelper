@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Book = require('../models/Recipe.js');
+var Recipe = require('../models/Recipe.js');
 
 /* GET ALL RECIPES */
 router.get('/', function (req, res, next) {

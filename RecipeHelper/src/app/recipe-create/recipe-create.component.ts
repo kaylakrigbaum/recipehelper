@@ -8,9 +8,9 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
   templateUrl: './recipe-create.component.html',
   styleUrls: ['./recipe-create.component.css']
 })
-export class BookCreateComponent implements OnInit {
+export class RecipeCreateComponent implements OnInit {
 
-  bookForm: FormGroup;
+  recipeForm: FormGroup;
   title: string = '';
   ingredients: string = '';
   instructions: string = '';
@@ -19,7 +19,7 @@ export class BookCreateComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.bookForm = this.formBuilder.group({
+    this.recipeForm = this.formBuilder.group({
       'title': [null, Validators.required],
       'ingredients': [null, Validators.required],
       'instructions': [null, Validators.required],

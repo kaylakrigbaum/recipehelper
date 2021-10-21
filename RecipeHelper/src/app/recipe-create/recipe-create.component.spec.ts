@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {RecipeCreateComponent} from './recipe-create.component';
 
-describe('BookCreateComponent', () => {
+describe('RecipeCreateComponent', () => {
   let component: RecipeCreateComponent;
   let fixture: ComponentFixture<RecipeCreateComponent>;
 

@@ -22,7 +22,7 @@ export class RecipeDetailComponent implements OnInit {
     this.api.getRecipe(id)
       .subscribe(data => {
         console.log(data);
-        this.recipe = recipe;
+        this.recipe = data;
       });
   }
 
