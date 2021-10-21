@@ -1,11 +1,12 @@
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb+srv://Recipe:Recipe@recipe.z3l1i.mongodb.net/Recipe?retryWrites=true&w=majority';
+var url = 'mongodb://localhost:27017/myapp';
 
 MongoClient.connect(url, {useNewUrlParser: true}, function (err, db) {
     if (err) throw err;
     var dbase = db.db("aplwebdemo");
     var myobj = [
-        {title: 'Spagetti', ingredients: 'moms', instructions: 'palms r sweaty'}
+        {title: 'Spagetti', ingredients: 'moms', instructions: 'palms r sweaty'},
+        {title: 'FOOD', ingredients: 'hungry', instructions: 'dying'}
     ];
     dbase.collection("newCollection").insertMany(myobj, function (err, res) {
         if (err) throw err;

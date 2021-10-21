@@ -4,7 +4,8 @@ var url = "mongodb://localhost:27017";
 MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var myobj = [
-        {title: 'Spagetti', ingredients: 'moms', instructions: 'palms r sweaty'}
+        {title: 'Spagetti', ingredients: 'moms', instructions: 'palms r sweaty'},
+        {title: 'FOOD', ingredients: 'hungry', instructions: 'dying'}
     ];
     var dbase = db.db("mydb");
     dbase.collection("newCollection").insertMany(myobj, function (err, res) {
