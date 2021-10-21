@@ -26,8 +26,21 @@ router.post('/', function (req, res, next) {
   });
 });
 
-/* UPDATE BOOK */
+/* UPDATE RECIPE */
+router.put('/:id', function(req, res, next){
+  console.log(req.params.id);
+  Recipe.findByIdAndUpdate(req.params.id, req.body, function (err, post){
+    if (err) return next(err);
+    res.json(post);
+    })
+  })
 
-/* DELETE BOOK */
+/* DELETE RECIPE */
+router.delete('/:id',function(req,res,next){
+  Recipe.findByIdAndDelete(req.params.id,function(err, post){
+    if(err) return next(err);
+    res.json(post);
+  })
+})
 
 module.exports = router;

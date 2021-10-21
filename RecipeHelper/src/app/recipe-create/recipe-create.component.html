@@ -24,6 +24,7 @@
     <mat-error>
       <span *ngIf="!recipeForm.get('instructions').valid && recipeForm.get('instructions').touched">Please enter Instructions</span>
     </mat-error>
+  </mat-form-field>
   <div class="button-row">
     <button [disabled]="!recipeForm.valid" color="primary" mat-raised-button type="submit">
       <mat-icon>save</mat-icon>

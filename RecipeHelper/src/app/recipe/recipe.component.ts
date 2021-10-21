@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../api.service';
 import {DataSource} from '@angular/cdk/collections';
 
+
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
@@ -11,7 +12,7 @@ export class RecipeComponent implements OnInit {
 
   recipes: any;
   displayedColumns = ['title', 'ingredients', 'instructions'];
-  dataSource = new RecipesDataSource(this.api);
+  dataSource = new RecipeDataSource(this.api);
 
   constructor(private api: ApiService) {
   }
@@ -27,7 +28,7 @@ export class RecipeComponent implements OnInit {
   }
 }
 
-export class RecipesDataSource extends DataSource<any> {
+export class RecipeDataSource extends DataSource<any> {
   constructor(private api: ApiService) {
     super();
   }
@@ -37,6 +38,5 @@ export class RecipesDataSource extends DataSource<any> {
   }
 
   disconnect() {
-
   }
 }

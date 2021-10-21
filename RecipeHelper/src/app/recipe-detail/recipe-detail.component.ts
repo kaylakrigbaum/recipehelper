@@ -9,7 +9,11 @@ import {ApiService} from '../api.service';
 })
 export class RecipeDetailComponent implements OnInit {
 
-  recipe = {};
+  recipe = {
+    title: '',
+    ingredients: '',
+    instructions: '',
+  };
 
   constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) {
   }
@@ -29,7 +33,7 @@ export class RecipeDetailComponent implements OnInit {
   deleteRecipe(id) {
     this.api.deleteRecipe(id)
       .subscribe(res => {
-          this.router.navigate(['/recipes']);
+          this.router.navigate(['/recipes']).then(r => {});
         }, (err) => {
           console.log(err);
         }

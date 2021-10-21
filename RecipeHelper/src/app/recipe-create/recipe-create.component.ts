@@ -11,9 +11,9 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 export class RecipeCreateComponent implements OnInit {
 
   recipeForm: FormGroup;
-  title: string = '';
-  ingredients: string = '';
-  instructions: string = '';
+  title = '';
+  ingredients = '';
+  instructions = '';
 
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder) {
   }
@@ -29,8 +29,8 @@ export class RecipeCreateComponent implements OnInit {
   onFormSubmit(form: NgForm) {
     this.api.postRecipe(form)
       .subscribe(res => {
-        let id = res['_id'];
-        this.router.navigate(['/recipe-details', id]);
+        const id = res['_id'];
+        this.router.navigate(['/recipe-details', id]).then(r => {});
       }, (err) => {
         console.log(err);
       });

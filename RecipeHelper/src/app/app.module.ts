@@ -25,28 +25,28 @@ import {
 
 const appRoutes: Routes = [
   {
-    path: 'Recipes',
+    path: 'recipes',
     component: RecipeComponent,
     data: {title: 'Recipe List'}
   },
   {
-    path: 'Recipe-details/:id',
+    path: 'recipe-details/:id',
     component: RecipeDetailComponent,
     data: {title: 'Recipe Details'}
   },
   {
-    path: 'Recipe-create',
+    path: 'recipe-create',
     component: RecipeCreateComponent,
     data: {title: 'Create Recipe'}
   },
   {
-    path: 'Recipe-edit/:id',
+    path: 'recipe-edit/:id',
     component: RecipeEditComponent,
     data: {title: 'Edit Recipe'}
   },
   {
     path: '',
-    redirectTo: '/Recipes',
+    redirectTo: '/recipes',
     pathMatch: 'full'
   }
 ];
