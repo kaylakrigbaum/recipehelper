@@ -1,7 +1,3 @@
-/**
- * Created by Vijaya Yeruva on 5/27/2017.
- */
-
 var events = require('events');
 var eventEmitter = new events.EventEmitter();
 

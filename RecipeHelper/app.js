@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost/mean-angular6')
   .then(() => console.log('connection successful'))
   .catch((err) => console.error(err));
 
-var apiRouter = require('./routes/book');
+var apiRouter = require('./routes/recipe');
 
 var app = express();
 
@@ -17,10 +17,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'dist/mean-angular6')));
-app.use('/books', express.static(path.join(__dirname, 'dist/mean-angular6')));
-app.use('/book-details/:id', express.static(path.join(__dirname, 'dist/mean-angular6')));
-app.use('/book-create', express.static(path.join(__dirname, 'dist/mean-angular6')));
-app.use('/book-edit/:id', express.static(path.join(__dirname, 'dist/mean-angular6')));
+app.use('/recipes', express.static(path.join(__dirname, 'dist/mean-angular6')));
+app.use('/recipe-details/:id', express.static(path.join(__dirname, 'dist/mean-angular6')));
+app.use('/recipe-create', express.static(path.join(__dirname, 'dist/mean-angular6')));
+app.use('/recipe-edit/:id', express.static(path.join(__dirname, 'dist/mean-angular6')));
 app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler

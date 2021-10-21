@@ -3,33 +3,33 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ApiService} from '../api.service';
 
 @Component({
-  selector: 'app-book-detail',
-  templateUrl: './book-detail.component.html',
-  styleUrls: ['./book-detail.component.css']
+  selector: 'app-recipe-detail',
+  templateUrl: './recipe-detail.component.html',
+  styleUrls: ['./recipe-detail.component.css']
 })
-export class BookDetailComponent implements OnInit {
+export class RecipeDetailComponent implements OnInit {
 
-  book = {};
+  recipe = {};
 
   constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) {
   }
 
   ngOnInit() {
-    this.getBookDetails(this.route.snapshot.params['id']);
+    this.getRecipeDetails(this.route.snapshot.params['id']);
   }
 
-  getBookDetails(id) {
-    this.api.getBook(id)
+  getRecipeDetails(id) {
+    this.api.getRecipe(id)
       .subscribe(data => {
         console.log(data);
-        this.book = data;
+        this.recipe = recipe;
       });
   }
 
-  deleteBook(id) {
-    this.api.deleteBook(id)
+  deleteRecipe(id) {
+    this.api.deleteRecipe(id)
       .subscribe(res => {
-          this.router.navigate(['/books']);
+          this.router.navigate(['/recipes']);
         }, (err) => {
           console.log(err);
         }

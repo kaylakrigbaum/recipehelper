@@ -1,6 +1,3 @@
-/**
- * Created by Vijaya Yeruva on 5/27/2017.
- */
 var http = require('http');
 var fs = require('fs');
 http.createServer(function (req, res) {

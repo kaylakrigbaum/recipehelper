@@ -1,26 +1,26 @@
 var express = require('express');
 var router = express.Router();
-var Book = require('../models/Book.js');
+var Book = require('../models/Recipe.js');
 
-/* GET ALL BOOKS */
+/* GET ALL RECIPES */
 router.get('/', function (req, res, next) {
-  Book.find(function (err, products) {
+  Recipe.find(function (err, products) {
     if (err) return next(err);
     res.json(products);
   });
 });
 
-/* GET SINGLE BOOK BY ID */
+/* GET SINGLE RECIPE BY ID */
 router.get('/:id', function (req, res, next) {
-  Book.findById(req.params.id, function (err, post) {
+  Recipe.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
 
-/* SAVE BOOK */
+/* SAVE RECIPE */
 router.post('/', function (req, res, next) {
-  Book.create(req.body, function (err, post) {
+  Recipe.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });

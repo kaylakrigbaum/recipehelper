@@ -5,10 +5,10 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
-import {BookComponent} from './book/book.component';
-import {BookDetailComponent} from './book-detail/book-detail.component';
-import {BookCreateComponent} from './book-create/book-create.component';
-import {BookEditComponent} from './book-edit/book-edit.component';
+import {RecipeComponent} from './recipe/recipe.component';
+import {RecipeDetailComponent} from './recipe-detail/recipe-detail.component';
+import {RecipeCreateComponent} from './recipe-create/recipe-create.component';
+import {RecipeEditComponent} from './recipe-edit/recipe-edit.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {
@@ -25,28 +25,28 @@ import {
 
 const appRoutes: Routes = [
   {
-    path: 'books',
-    component: BookComponent,
-    data: {title: 'Book List'}
+    path: 'Recipes',
+    component: RecipeComponent,
+    data: {title: 'Recipe List'}
   },
   {
-    path: 'book-details/:id',
-    component: BookDetailComponent,
-    data: {title: 'Book Details'}
+    path: 'Recipe-details/:id',
+    component: RecipeDetailComponent,
+    data: {title: 'Recipe Details'}
   },
   {
-    path: 'book-create',
-    component: BookCreateComponent,
-    data: {title: 'Create Book'}
+    path: 'Recipe-create',
+    component: RecipeCreateComponent,
+    data: {title: 'Create Recipe'}
   },
   {
-    path: 'book-edit/:id',
-    component: BookEditComponent,
-    data: {title: 'Edit Book'}
+    path: 'Recipe-edit/:id',
+    component: RecipeEditComponent,
+    data: {title: 'Edit Recipe'}
   },
   {
     path: '',
-    redirectTo: '/books',
+    redirectTo: '/Recipes',
     pathMatch: 'full'
   }
 ];
@@ -54,10 +54,10 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent,
-    BookDetailComponent,
-    BookCreateComponent,
-    BookEditComponent
+    RecipeComponent,
+    RecipeDetailComponent,
+    RecipeCreateComponent,
+    RecipeEditComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

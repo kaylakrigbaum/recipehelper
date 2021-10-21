@@ -10,23 +10,19 @@
   </mat-card-header>
   <mat-card-content>
     <dl>
-      <dt>ISBN:</dt>
-      <dd>{{book.isbn}}</dd>
-      <dt>Author:</dt>
-      <dd>{{book.author}}</dd>
-      <dt>Publisher:</dt>
-      <dd>{{book.publisher}}</dd>
-      <dt>Publish Year:</dt>
-      <dd>{{book.published_year}}</dd>
-      <dt>Update Date:</dt>
-      <dd>{{book.updated_date | date}}</dd>
+      <dt>Title:</dt>
+      <dd>{{recipe.title}}</dd>
+      <dt>Ingredients</dt>
+      <dd>{{recipe.ingredients}}</dd>
+      <dt>Instructions</dt>
+      <dd>{{recipe.instructions}}</dd>
     </dl>
   </mat-card-content>
   <mat-card-actions>
-    <a [routerLink]="['/book-edit', book._id]" color="primary" mat-raised-button>
+    <a [routerLink]="['/recipe-edit', recipe._id]" color="primary" mat-raised-button>
       <mat-icon>edit</mat-icon>
     </a>
-    <a (click)="deleteBook(book._id)" color="warn" mat-raised-button>
+    <a (click)="deleteRecipe(recipe._id)" color="warn" mat-raised-button>
       <mat-icon>delete</mat-icon>
     </a>
   </mat-card-actions>

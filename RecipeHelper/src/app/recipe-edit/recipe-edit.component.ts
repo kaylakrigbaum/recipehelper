@@ -4,11 +4,11 @@ import {ApiService} from '../api.service';
 import {FormBuilder} from '@angular/forms';
 
 @Component({
-  selector: 'app-book-edit',
-  templateUrl: './book-edit.component.html',
-  styleUrls: ['./book-edit.component.css']
+  selector: 'app-recipe-edit',
+  templateUrl: './recipe-edit.component.html',
+  styleUrls: ['./recipe-edit.component.css']
 })
-export class BookEditComponent implements OnInit {
+export class RecipeEditComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) {
   }

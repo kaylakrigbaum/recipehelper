@@ -1,7 +1,3 @@
-/**
- * Created by Vijaya Yeruva on 5/27/2017.
- */
-
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017";
 

@@ -3,37 +3,37 @@ import {ApiService} from '../api.service';
 import {DataSource} from '@angular/cdk/collections';
 
 @Component({
-  selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  selector: 'app-recipe',
+  templateUrl: './recipe.component.html',
+  styleUrls: ['./recipe.component.css']
 })
-export class BookComponent implements OnInit {
+export class RecipeComponent implements OnInit {
 
-  books: any;
-  displayedColumns = ['isbn', 'title', 'author'];
-  dataSource = new BookDataSource(this.api);
+  recipes: any;
+  displayedColumns = ['title', 'ingredients', 'instructions'];
+  dataSource = new RecipeDataSource(this.api);
 
   constructor(private api: ApiService) {
   }
 
   ngOnInit() {
-    this.api.getBooks()
+    this.api.getRecipes()
       .subscribe(res => {
         console.log(res);
-        this.books = res;
+        this.recipes = res;
       }, err => {
         console.log(err);
       });
   }
 }
 
-export class BookDataSource extends DataSource<any> {
+export class RecipesDataSource extends DataSource<any> {
   constructor(private api: ApiService) {
     super();
   }
 
   connect() {
-    return this.api.getBooks();
+    return this.api.getRecipes();
   }
 
   disconnect() {
