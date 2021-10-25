@@ -4,7 +4,7 @@
   </a>
 </div>
 <div class="example-container mat-elevation-z8">
-  <table #table [dataSource]="dataSource" mat-table>
+  <table #table [dataSource]="dataStoredRecipes" mat-table>
 
     <!-- Title Column -->
     <ng-container matColumnDef="title">
@@ -22,6 +22,28 @@
     <ng-container matColumnDef="instructions">
       <th *matHeaderCellDef mat-header-cell>Instructions</th>
       <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/recipe-details/', row._id]" mat-row></tr>
+  </table>
+</div>
+<div class="example-container mat-elevation-z8">
+  <table #table [dataSource]="dataEdamamApi" mat-table>
+
+    <ng-container matColumnDef="name">
+      <th *matHeaderCellDef mat-header-cell>Name</th>
+      <td *matCellDef="let element" class="name" mat-cell> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="icon">
+      <th *matHeaderCellDef mat-header-cell>Icon</th>
+      <td *matCellDef="let element" mat-cell> {{element.icon}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="url">
+      <th *matHeaderCellDef mat-header-cell>URL</th>
+      <td *matCellDef="let element" mat-cell> {{element.url}} </td>
     </ng-container>
 
     <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
