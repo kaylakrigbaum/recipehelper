@@ -3,50 +3,61 @@
     <mat-icon>add</mat-icon>
   </a>
 </div>
-<div class="example-container mat-elevation-z8">
-  <table #table [dataSource]="dataStoredRecipes" mat-table>
+<div>
+  <div class="example-container mat-elevation-z8">
+    <table #table [dataSource]="dataStoredRecipes" mat-table>
 
-    <!-- Title Column -->
-    <ng-container matColumnDef="title">
-      <th *matHeaderCellDef mat-header-cell>Title</th>
-      <td *matCellDef="let element" class="title" mat-cell> {{element.title}} </td>
-    </ng-container>
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <th *matHeaderCellDef mat-header-cell>Title</th>
+        <td *matCellDef="let element" class="title" mat-cell> {{element.title}} </td>
+      </ng-container>
 
-    <!-- Title Column -->
-    <ng-container matColumnDef="ingredients">
-      <th *matHeaderCellDef mat-header-cell>Ingredients</th>
-      <td *matCellDef="let element" mat-cell> {{element.ingredients}} </td>
-    </ng-container>
+      <!-- Title Column -->
+      <ng-container matColumnDef="ingredients">
+        <th *matHeaderCellDef mat-header-cell>Ingredients</th>
+        <td *matCellDef="let element" mat-cell> {{element.ingredients}} </td>
+      </ng-container>
 
-    <!-- Author Column -->
-    <ng-container matColumnDef="instructions">
-      <th *matHeaderCellDef mat-header-cell>Instructions</th>
-      <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>
-    </ng-container>
+      <!-- Author Column -->
+      <ng-container matColumnDef="instructions">
+        <th *matHeaderCellDef mat-header-cell>Instructions</th>
+        <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>
+      </ng-container>
 
-    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-    <tr *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/recipe-details/', row._id]" mat-row></tr>
-  </table>
+      <tr *matHeaderRowDef="dataStoredColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: dataStoredColumns;" [routerLink]="['/recipe-details/', row._id]" mat-row></tr>
+    </table>
+  </div>
 </div>
-<div class="example-container mat-elevation-z8">
-  <table #table [dataSource]="dataEdamamApi" mat-table>
 
-    <ng-container matColumnDef="name">
-      <th *matHeaderCellDef mat-header-cell>Name</th>
-      <td *matCellDef="let element" class="name" mat-cell> {{element.name}} </td>
-    </ng-container>
+<mat-form-field (ngSubmit)='getEdamamRecipes($event)' color='primary' id='search-input' class='full-width' appearance='outline'>
+  <mat-label color='red'>Search Recipes</mat-label>
+  <input #searchRecipes matInput  [(ngModel)]='searchValue' name='searchRecipes' [value]='searchValue' (keyup.enter)='getEdamamRecipes($event)'>
+</mat-form-field>
+<button mat-raised-button color="primary" (click)='getEdamamRecipes(searchValue)' id='submit-search' type='submit' for='searchRecipes'>Submit</button>
 
-    <ng-container matColumnDef="icon">
-      <th *matHeaderCellDef mat-header-cell>Icon</th>
-      <td *matCellDef="let element" mat-cell> {{element.icon}} </td>
-    </ng-container>
+<div>
+  <div class="example-container mat-elevation-z8">
+    <table #table [dataSource]="dataEdamamApi" mat-table>
 
-    <ng-container matColumnDef="url">
-      <th *matHeaderCellDef mat-header-cell>URL</th>
-      <td *matCellDef="let element" mat-cell> {{element.url}} </td>
-    </ng-container>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell>Name</th>
+        <td *matCellDef="let element" class="name" mat-cell> {{element.name}} </td>
+      </ng-container>
 
-    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-    <tr *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/recipe-details/', row._id]" mat-row></tr>
-  </table>
+      <ng-container matColumnDef="icon">
+        <th *matHeaderCellDef mat-header-cell>Icon</th>
+        <td *matCellDef="let element" mat-cell> {{element.icon}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="url">
+        <th *matHeaderCellDef mat-header-cell>URL</th>
+        <td *matCellDef="let element" mat-cell> {{element.url}} </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="dataEdamamColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: dataEdamamColumns;" [routerLink]="['/recipe-details/', row._id]" mat-row></tr>
+    </table>
+  </div>
 </div>
