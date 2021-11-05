@@ -51,9 +51,14 @@
         <td *matCellDef="let element" mat-cell> {{element.icon}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="url">
-        <th *matHeaderCellDef mat-header-cell>URL</th>
-        <td *matCellDef="let element" mat-cell> {{element.url}} </td>
+      <ng-container matColumnDef="ingredients">
+        <th *matHeaderCellDef mat-header-cell>Ingredients</th>
+        <td *matCellDef="let element" mat-cell> {{element.ingredients}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="method">
+        <th *matHeaderCellDef mat-header-cell>Method</th>
+        <td *matCellDef="let element" mat-cell> {{element.method}} </td>
       </ng-container>
 
       <tr *matHeaderRowDef="dataEdamamColumns" mat-header-row></tr>

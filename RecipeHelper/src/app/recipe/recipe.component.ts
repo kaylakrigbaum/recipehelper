@@ -13,10 +13,8 @@ export class RecipeComponent implements OnInit {
   dataStoredRecipes: any;
   dataStoredColumns = ['title', 'ingredients', 'instructions'];
   dataSource = new StoredRecipes(this.api);
-  dataEdamamColumns = ['name', 'icon', 'url'];
-
-  @ViewChild('recipe') recipes: ElementRef;
-  recipeValue: any;
+  
+  dataEdamamColumns = ['name', 'icon', 'ingredients', 'method'];
   dataEdamamApi = [];
 
   edamamAPI = 'https://api.edamam.com/search?q=';
@@ -37,20 +35,20 @@ export class RecipeComponent implements OnInit {
   }
 
   getEdamamRecipes(recipeValue) {
-    // this.recipeValue = this.recipes.nativeElement.value;
     console.log("recipe values", recipeValue);
     this._http
     .get(
       this.edamamAPI 
-    + this.recipeValue 
+    + recipeValue 
     + this.edamamID 
     + this.edamamKEY)
     .subscribe((res: any) => {
       console.log("Edamam Response", res);
-      this.dataEdamamApi = Object.keys(res.recipe).map(recipeKey => {
-        const singleRecipe = res.hits[recipeKey].recipe;
+      this.dataEdamamApi = Object.keys(res.hits).map(function (key) {
+        const singleRecipe = res.hits[key].recipe;
+        console.log("Single Recipe:", singleRecipe);
         return {
-          name: singleRecipe.label, icon: singleRecipe.image, url: singleRecipe.url
+          name: singleRecipe.label, icon: singleRecipe.image, ingredients: singleRecipe.ingredientLines.toString(), method: singleRecipe.url
         };
       });
     });
