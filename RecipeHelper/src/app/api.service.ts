@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
+import {any} from 'codelyzer/util/function';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -12,14 +13,26 @@ const apiUrl = '/api';
   providedIn: 'root'
 })
 export class ApiService {
-
+  recipeValue: any;
+  recipeList = [];
   constructor(private http: HttpClient) {
   }
 
-  getRecipes(): Observable<any> {
+  getRecipes() {
+    this.http.get( 'https://api.edamam.com/search?q=' + this.recipeValue +
+      '&app_id=984f1bb1' +
+      '&app_key=f75e9fa995c51e73f9fa34b8a52b393e').subscribe((res: any) => {
+      this.recipeList = Object.keys(res.hits).map(function (k) {
+        const i = res.hits[k].recipe;
+        console.log(i);
+        return {name: i.label, icon: i.image, url: i.url};
+      });
+    });
+    /*
     return this.http.get(apiUrl, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
+     */
   }
 
   getRecipe(id: string): Observable<any> {
@@ -68,7 +81,7 @@ export class ApiService {
   }
 
   private extractData(res: Response) {
-    let body = res;
+    const body = res;
     return body || {};
   }
 }
