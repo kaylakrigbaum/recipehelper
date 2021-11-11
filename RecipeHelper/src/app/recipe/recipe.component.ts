@@ -13,13 +13,14 @@ export class RecipeComponent implements OnInit {
   dataStoredRecipes: any;
   dataStoredColumns = ['title', 'ingredients', 'instructions'];
   dataSource = new StoredRecipes(this.api);
-  
+
   dataEdamamColumns = ['name', 'icon', 'ingredients', 'method'];
   dataEdamamApi = [];
 
   edamamAPI = 'https://api.edamam.com/search?q=';
   edamamID = '&app_id=48518b9b';
   edamamKEY = '&app_key=7753e2c9359b3cded5d000806817c845';
+  searchValue: any;
 
   constructor(private api: ApiService, private _http: HttpClient) {
   }
@@ -38,9 +39,9 @@ export class RecipeComponent implements OnInit {
     console.log("recipe values", recipeValue);
     this._http
     .get(
-      this.edamamAPI 
-    + recipeValue 
-    + this.edamamID 
+      this.edamamAPI
+    + recipeValue
+    + this.edamamID
     + this.edamamKEY)
     .subscribe((res: any) => {
       console.log("Edamam Response", res);
