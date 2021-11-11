@@ -62,7 +62,7 @@
       </ng-container>
 
       <tr *matHeaderRowDef="dataEdamamColumns" mat-header-row></tr>
-      <tr *matRowDef="let row; columns: dataEdamamColumns;" [routerLink]="['/recipe-details/', row._id]" mat-row></tr>
+      <tr *matRowDef="let row; columns: dataEdamamColumns;" [routerLink]="['/recipe-create-from/', row]" mat-row></tr>
     </table>
   </div>
 </div>
