@@ -45,7 +45,7 @@ const appRoutes: Routes = [
     data: {title: 'Edit Recipe'}
   },
   {
-    path: '/recipe-create-from/:row',
+    path: 'recipe-create-from/:row',
     component: RecipeCreateComponent,
     data: {title: 'Create Favorite'}
   },

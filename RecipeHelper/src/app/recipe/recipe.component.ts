@@ -1,7 +1,9 @@
 import {Component, OnInit, ElementRef,  ViewChild} from '@angular/core';
 import {ApiService} from '../api.service';
+import {Router} from '@angular/router';
 import {DataSource} from '@angular/cdk/collections';
 import {HttpClient} from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -14,15 +16,17 @@ export class RecipeComponent implements OnInit {
   dataStoredColumns = ['title', 'ingredients', 'instructions'];
   dataSource = new StoredRecipes(this.api);
 
-  dataEdamamColumns = ['name', 'icon', 'ingredients', 'method'];
+  dataEdamamColumns = ['title', 'favorite', 'icon', 'ingredients', 'instructions'];
   dataEdamamApi = [];
+
+  favoriteData = [];
 
   edamamAPI = 'https://api.edamam.com/search?q=';
   edamamID = '&app_id=48518b9b';
   edamamKEY = '&app_key=7753e2c9359b3cded5d000806817c845';
   searchValue: any;
 
-  constructor(private api: ApiService, private _http: HttpClient) {
+  constructor(private api: ApiService, private _http: HttpClient, private router: Router) {
   }
 
   ngOnInit() {
@@ -49,11 +53,22 @@ export class RecipeComponent implements OnInit {
         const singleRecipe = res.hits[key].recipe;
         console.log("Single Recipe:", singleRecipe);
         return {
-          name: singleRecipe.label, icon: singleRecipe.image, ingredients: singleRecipe.ingredientLines.toString(), method: singleRecipe.url
+          title: singleRecipe.label, icon: singleRecipe.image, ingredients: singleRecipe.ingredientLines.toString(), instructions: singleRecipe.url
         };
       });
     });
   }
+
+  postFavorite(row) {
+    console.log(row)
+    this.api.postRecipe(row).subscribe(res => {
+      const id = res['_id'];
+      this.router.navigate(['/recipe-details', id]).then(r => {});
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
 }
 
 export class StoredRecipes extends DataSource<any> {
