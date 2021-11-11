@@ -27,6 +27,7 @@ export class RecipeCreateComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm) {
+    console.log("this is the form: ",form)
     this.api.postRecipe(form)
       .subscribe(res => {
         const id = res['_id'];
