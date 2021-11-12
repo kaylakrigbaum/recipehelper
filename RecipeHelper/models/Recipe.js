@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var RecipeSchema = new mongoose.Schema({
+const RecipeSchema = new mongoose.Schema({
   title: String,
   ingredients: String,
   instructions: String,
