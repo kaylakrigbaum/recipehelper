@@ -1,1 +1,34 @@
 <!-- write code to edit and save book i this component -->
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/recipes']">
+    <mat-icon>list</mat-icon>
+  </a>
+</div>
+<form [formGroup]="recipeForm" (ngSubmit)="onFormSubmit(recipeForm.value)" class="bg-text1">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Title" formControlName="title"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!recipeForm.get('title').valid && recipeForm.get('title').touched">Please enter Title</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Ingredients" formControlName="ingredients"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!recipeForm.get('ingredients').valid && recipeForm.get('ingredients').touched">Please enter Ingredients</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Instructions" formControlName="instructions"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!recipeForm.get('instructions').valid && recipeForm.get('instructions').touched">Please enter Instructions</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!recipeForm.valid" mat-raised-button >
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+</form>
