@@ -13,6 +13,7 @@ export class RecipeDetailComponent implements OnInit {
     title: '',
     ingredients: '',
     instructions: '',
+    _id: '/recipe-edit'
   };
 
   constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) {
