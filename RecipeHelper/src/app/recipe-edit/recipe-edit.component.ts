@@ -14,6 +14,7 @@ export class RecipeEditComponent implements OnInit {
   ingredients = '';
   instructions = '';
   recipeForm: FormGroup;
+  matcher: any;
 
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) {
   }
