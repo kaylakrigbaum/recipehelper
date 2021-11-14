@@ -26,6 +26,10 @@ h3 {
   text-align: center;
 }
 
+#icon-padding {
+  vertical-align: middle;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* NAVBAR */
 
@@ -54,4 +58,6 @@ h3 {
 .navBar a.active {
   background-color: rgb(55, 55, 216);
   color: white;
+  width: auto;
+  height: auto;
 }

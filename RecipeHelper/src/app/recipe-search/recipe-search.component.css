@@ -18,6 +18,9 @@
 .title {
   text-align: center;
 }
+#icon-padding {
+  vertical-align: middle;
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* NAVBAR */
