@@ -11,8 +11,19 @@
   white-space: unset !important;
 }
 
-.button-row {
-  margin: 10px 0;
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
@@ -43,18 +54,4 @@
 .navBar a.active {
   background-color: rgb(55, 55, 216);
   color: white;
-}
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 25%;
-  height: auto;
-}
-
-h1 {
-  text-align: center;
-}
-h3 {
-  text-align: center;
 }
