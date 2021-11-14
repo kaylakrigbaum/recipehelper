@@ -1,83 +1,14 @@
 <nav class="navBar">
-  <a class="active" href="recipe-create">Home</a>
+  <a  class="active" [routerLink]="['/recipes']" >Home</a>
   <a  [routerLink]="['/recipe-search']" >Search Recipe</a>
   <a  [routerLink]="['/recipe-list']" >My Recipe</a>
   <a  [routerLink]="['/recipe-create']" >Create Reicpe</a>
 </nav>
 
-<div class="button-row">
-  <a [routerLink]="['/recipe-create']" color="primary" mat-raised-button>
-    Create Recipe <mat-icon>add_box</mat-icon>
-  </a>
-</div>
-<div>
-  <div class="example-container mat-elevation-z8">
-    <table #table [dataSource]="dataStoredRecipes" mat-table>
+<body>
+  <h1>
+    Welcome to Recipe Remedies
+  </h1>
 
-      <!-- Title Column -->
-      <ng-container matColumnDef="title">
-        <th *matHeaderCellDef mat-header-cell>Title</th>
-        <td *matCellDef="let element" class="title" mat-cell> {{element.title}} </td>
-      </ng-container>
-
-      <!-- Title Column -->
-      <ng-container matColumnDef="ingredients">
-        <th *matHeaderCellDef mat-header-cell>Ingredients</th>
-        <td *matCellDef="let element" mat-cell> {{element.ingredients}} </td>
-      </ng-container>
-
-      <!-- Author Column -->
-      <ng-container matColumnDef="instructions">
-        <th *matHeaderCellDef mat-header-cell>Instructions</th>
-        <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>
-      </ng-container>
-
-      <tr *matHeaderRowDef="dataStoredColumns" mat-header-row></tr>
-      <tr *matRowDef="let row; columns: dataStoredColumns;" [routerLink]="['/recipe-details/', row._id]" mat-row></tr>
-    </table>
-  </div>
-</div>
-
-
-<mat-form-field  color='primary' id='search-input' class='full-width' appearance='outline'>
-  <mat-label color='red'>Search Recipes</mat-label>
-  <input #searchRecipes matInput  [(ngModel)]='searchValue' name='searchRecipes' [value]='searchValue' (keyup.enter)='getEdamamRecipes(searchValue)'>
-</mat-form-field>
-<button mat-raised-button color="primary" (click)='getEdamamRecipes(searchValue)' id='submit-search' type='submit' for='searchRecipes'>Submit</button>
-
-<div>
-  <div class="example-container mat-elevation-z8">
-    <table #table [dataSource]="dataEdamamApi" mat-table>
-
-      <ng-container matColumnDef="title">
-        <th *matHeaderCellDef mat-header-cell>Title</th>
-        <td *matCellDef="let element" class="title" mat-cell>{{element.title}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="favorite">
-        <mat-header-cell  *matHeaderCellDef > Favorite </mat-header-cell>
-        <mat-cell *matCellDef="let row" >
-          <button mat-raised-button color="primary" (click)='postFavorite(row)' id='post-favorite' type='submit' for='name'>favorite</button>
-        </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="icon">
-        <th *matHeaderCellDef mat-header-cell>Icon</th>
-        <td *matCellDef="let element" mat-cell> {{element.icon}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="ingredients">
-        <th *matHeaderCellDef mat-header-cell>Ingredients</th>
-        <td *matCellDef="let element" mat-cell> {{element.ingredients}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="instructions">
-        <th *matHeaderCellDef mat-header-cell>Instructions</th>
-        <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>
-      </ng-container>
-
-      <tr *matHeaderRowDef="dataEdamamColumns" mat-header-row></tr>
-      <tr *matRowDef="let row; columns: dataEdamamColumns;" mat-row></tr>
-    </table>
-  </div>
-</div>
+  
+</body>

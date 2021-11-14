@@ -37,3 +37,9 @@
   background-color: #f6d081;
   color: black;
 }
+
+/* Add a color to the active/current link */
+.navBar a.active {
+  background-color: rgb(55, 55, 216);
+  color: white;
+}
