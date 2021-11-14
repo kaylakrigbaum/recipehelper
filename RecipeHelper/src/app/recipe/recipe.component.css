@@ -58,14 +58,3 @@ h1 {
 h3 {
   text-align: center;
 }
-
-ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-ul #bt1 {
-  margin-right: 3rem;
-}
