@@ -22,7 +22,7 @@
   background-color: #333;
   overflow: hidden;
   color: white;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
 
 .navBar a {
@@ -44,10 +44,28 @@
   background-color: rgb(55, 55, 216);
   color: white;
 }
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  height: auto;
+}
 
 h1 {
   text-align: center;
 }
 h3 {
   text-align: center;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul #bt1 {
+  margin-right: 3rem;
 }

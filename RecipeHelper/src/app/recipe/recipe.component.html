@@ -1,16 +1,24 @@
-<nav class="navBar">
-  <a  class="active" [routerLink]="['/recipes']" >Home</a>
-  <a  [routerLink]="['/recipe-search']" >Search Recipe</a>
-  <a  [routerLink]="['/recipe-list']" >My Recipe</a>
-  <a  [routerLink]="['/recipe-create']" >Create Reicpe</a>
-</nav>
-
 <body>
-  <h1>
-    Welcome to Recipe Remedies
-  </h1>
-  <h3>Search: </h3>
   <div class="logo">
-    <img src="reciperemedieslogo.jpeg" alt="testText">
+    <h1>
+      Welcome to Recipe Remedies
+    </h1>
+
+    <img src="assets/reciperemedieslogo.jpeg" alt="testText">
+    <h3>Our Page Aims to help YOU find your favorite recipes, favorite them, and even create your own!</h3>
+  </div>
+
+  <div class="heading">
+    <ul>
+        <a id="btn1" [routerLink]="['/recipe-search']" color="primary" mat-raised-button>
+          Search Recipe <mat-icon>search</mat-icon>
+        </a>
+        <a id="btn2" [routerLink]="['/recipe-list']" color="primary" mat-raised-button>
+          My Recipe <mat-icon>list</mat-icon>
+        </a>
+        <a id="btn3" [routerLink]="['/recipe-create']" color="primary" mat-raised-button>
+          Create Reicpe <mat-icon>note_add</mat-icon>
+        </a>
+    </ul>
   </div>
 </body>
