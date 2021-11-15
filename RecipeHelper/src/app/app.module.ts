@@ -8,6 +8,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {RecipeComponent} from './recipe/recipe.component';
 import {RecipeDetailComponent} from './recipe-detail/recipe-detail.component';
 import {RecipeCreateComponent} from './recipe-create/recipe-create.component';
+import {RecipeSearchComponent} from './recipe-search/recipe-search.component';
+import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {RecipeEditComponent} from './recipe-edit/recipe-edit.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -50,6 +52,16 @@ const appRoutes: Routes = [
     data: {title: 'Create Favorite'}
   },
   {
+    path: 'recipe-search',
+    component: RecipeSearchComponent,
+    data: {title: 'Search Recipes'}
+  },
+  {
+    path: 'recipe-list',
+    component: RecipeListComponent,
+    data: {title: 'List Recipes'}
+  },
+  {
     path: '',
     redirectTo: '/recipes',
     pathMatch: 'full'
@@ -62,6 +74,8 @@ const appRoutes: Routes = [
     RecipeComponent,
     RecipeDetailComponent,
     RecipeCreateComponent,
+    RecipeSearchComponent,
+    RecipeListComponent,
     RecipeEditComponent
   ],
   imports: [

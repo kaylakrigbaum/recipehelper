@@ -1,26 +1,34 @@
+<nav class="navBar">
+  <a  class="active" [routerLink]="['/recipes']" >Home</a>
+  <a  [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
+  <a  [routerLink]="['/recipe-list']" >My Recipe <mat-icon id="icon-padding">list_alt</mat-icon></a>
+  <a  [routerLink]="['/recipe-create']" >Create Recipe <mat-icon id="icon-padding">note_add</mat-icon></a>
+</nav>
+<h3 class="title">Create and add Recipes to your favorites list!</h3>
+
 <div class="button-row">
-  <a [routerLink]="['/recipes']" color="primary" mat-raised-button>
-    <mat-icon>list</mat-icon>
+  <a [routerLink]="['/recipe-search']" color="primary" mat-raised-button>
+    Back to Search <mat-icon>search</mat-icon>
   </a>
 </div>
 <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
   <mat-form-field class="example-full-width">
     <input [errorStateMatcher]="matcher" formControlName="title" matInput
-           placeholder="Title">
+            placeholder="Title">
     <mat-error>
       <span *ngIf="!recipeForm.get('title').valid && recipeForm.get('title').touched">Please enter Title</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input [errorStateMatcher]="matcher" formControlName="ingredients" matInput
-           placeholder="Ingredients">
+            placeholder="Ingredients">
     <mat-error>
       <span *ngIf="!recipeForm.get('ingredients').valid && recipeForm.get('ingredients').touched">Please enter Ingredients</span>
     </mat-error>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input [errorStateMatcher]="matcher" formControlName="instructions" matInput
-           placeholder="instructions">
+            placeholder="instructions">
     <mat-error>
       <span *ngIf="!recipeForm.get('instructions').valid && recipeForm.get('instructions').touched">Please enter Instructions</span>
     </mat-error>
@@ -30,4 +38,4 @@
       <mat-icon>save</mat-icon>
     </button>
   </div>
-</form>
+</form>  

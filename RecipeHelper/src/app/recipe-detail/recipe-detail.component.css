@@ -1,7 +1,37 @@
-.example-card {
-  max-width: 500px;
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+  overflow: auto;
+}
+
+.isbn-col {
+  flex: 0 0 100px !important;
+  white-space: unset !important;
 }
 
 .button-row {
   margin: 10px 0;
+}
+
+#icon-padding {
+  vertical-align: middle;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* NAVBAR */
+
+.navBar {
+  background-color: #333;
+  overflow: hidden;
+  color: white;
+}
+
+.navBar a {
+  float: left;
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
