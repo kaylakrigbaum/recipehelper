@@ -5,6 +5,13 @@ body {
   background-color: rgba(247, 209, 129, 255);
 }
 
+.main-body {
+  background-color: rgba(51, 51, 51, 255);
+  color: white;
+  text-align: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* NAVBAR */
 
