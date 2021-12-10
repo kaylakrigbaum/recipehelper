@@ -1,42 +1,57 @@
 <nav class="navBar">
-  <a  class="active" [routerLink]="['/recipes']" >Home</a>
-  <a  [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
-  <a  [routerLink]="['/recipe-list']" >My Recipe <mat-icon id="icon-padding">list_alt</mat-icon></a>
-  <a  [routerLink]="['/recipe-create']" >Create Recipe <mat-icon id="icon-padding">note_add</mat-icon></a>
+  <a [routerLink]="['/recipes']" >Home</a>
+  <a [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
+  <a [routerLink]="['/recipe-list']" >My Recipe <mat-icon id="icon-padding">list_alt</mat-icon></a>
+  <a class="active" [routerLink]="['/recipe-create']" >Create Recipe <mat-icon id="icon-padding">note_add</mat-icon></a>
 </nav>
-<h3 class="title">Create and add Recipes to your favorites list!</h3>
 
-<div class="button-row">
-  <a [routerLink]="['/recipe-search']" color="primary" mat-raised-button>
-    Back to Search <mat-icon>search</mat-icon>
-  </a>
-</div>
-<form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
-  <mat-form-field class="example-full-width">
-    <input [errorStateMatcher]="matcher" formControlName="title" matInput
-            placeholder="Title">
-    <mat-error>
-      <span *ngIf="!recipeForm.get('title').valid && recipeForm.get('title').touched">Please enter Title</span>
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <input [errorStateMatcher]="matcher" formControlName="ingredients" matInput
-            placeholder="Ingredients">
-    <mat-error>
-      <span *ngIf="!recipeForm.get('ingredients').valid && recipeForm.get('ingredients').touched">Please enter Ingredients</span>
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <input [errorStateMatcher]="matcher" formControlName="instructions" matInput
-            placeholder="instructions">
-    <mat-error>
-      <span *ngIf="!recipeForm.get('instructions').valid && recipeForm.get('instructions').touched">Please enter Instructions</span>
-    </mat-error>
-  </mat-form-field>
-  <div class="button-row">
-    <button [disabled]="!recipeForm.valid" color="primary" mat-raised-button type="submit">
-      <mat-icon>save</mat-icon>
-    </button>
+<body>
+  <div class="main-body" id="body-padding">
+    <h3 class="title">Create and add Recipes to your favorites list!</h3>
+
+    <div class="button-row">
+      <a [routerLink]="['/recipe-search']" color="primary" mat-raised-button>
+        Back to Search <mat-icon>search</mat-icon>
+      </a>
+    </div>
+    
+    <div class="input-layout">
+      <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
+        <mat-form-field class="example-full-width">
+          <input [errorStateMatcher]="matcher" formControlName="title" matInput
+                  placeholder="Title">
+          <mat-error>
+            <span *ngIf="!recipeForm.get('title').valid && recipeForm.get('title').touched">Please enter Title</span>
+          </mat-error>
+        </mat-form-field>
+      </form> 
+  
+      <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
+        <mat-form-field class="example-full-width">
+          <input [errorStateMatcher]="matcher" formControlName="ingredients" matInput
+                  placeholder="Ingredients">
+          <mat-error>
+            <span *ngIf="!recipeForm.get('ingredients').valid && recipeForm.get('ingredients').touched">Please enter Ingredients</span>
+          </mat-error>
+        </mat-form-field>
+      </form>
+  
+      <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
+        <mat-form-field class="example-full-width">
+          <input [errorStateMatcher]="matcher" formControlName="instructions" matInput
+                  placeholder="instructions">
+          <mat-error>
+            <span *ngIf="!recipeForm.get('instructions').valid && recipeForm.get('instructions').touched">Please enter Instructions</span>
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </div>
+
+      <div class="button-row">
+        <button [disabled]="!recipeForm.valid" color="primary" mat-raised-button type="submit">
+          <mat-icon>save</mat-icon>
+        </button>
+      </div> 
   </div>
   <div *ngIf="voiceActiveSectionDisabled; else voicesection;">
     <button type="button" (click)="startVoiceRecognition()">Record</button>
@@ -65,3 +80,4 @@
     </div>
   </ng-template>
 </form>
+</body>

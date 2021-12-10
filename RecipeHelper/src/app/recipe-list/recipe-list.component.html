@@ -1,12 +1,13 @@
 <nav class="navBar">
-  <a  class="active" [routerLink]="['/recipes']" >Home</a>
-  <a  [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
-  <a  [routerLink]="['/recipe-list']" >My Recipe <mat-icon id="icon-padding">list_alt</mat-icon></a>
-  <a  [routerLink]="['/recipe-create']" >Create Recipe <mat-icon id="icon-padding">note_add</mat-icon></a>
+  <a [routerLink]="['/recipes']" >Home</a>
+  <a [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
+  <a class="active" [routerLink]="['/recipe-list']" >My Recipe <mat-icon id="icon-padding">list_alt</mat-icon></a>
+  <a [routerLink]="['/recipe-create']" >Create Recipe <mat-icon id="icon-padding">note_add</mat-icon></a>
 </nav>
 
-
-<h3 class="title">View, Edit, and Delete your Recipes!</h3>
+<body>
+  <div class="main-body" id="body-padding">
+    <h3 class="title">View, Edit, and Delete your Recipes!</h3>
 
 <div>
   <div class="example-container mat-elevation-z8">
@@ -35,3 +36,5 @@
     </table>
   </div>
 </div>
+  </div>
+</body>
