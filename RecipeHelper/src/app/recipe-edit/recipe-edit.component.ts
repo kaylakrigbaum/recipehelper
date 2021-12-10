@@ -18,7 +18,7 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) {
   }
-
+ /* Allows the user to edit the recipe that was selected*/
   ngOnInit() {
     this.recipeForm = this.formBuilder.group({
       'title': [null, Validators.required],
@@ -27,6 +27,7 @@ export class RecipeEditComponent implements OnInit {
     });
     this.getRecipe(this.route.snapshot.params['id']);
   }
+  /* Retrieves the recipe selected from the database*/
   getRecipe(id) {
     this.api.getRecipe(id).subscribe(data => {
       id = data._id;
@@ -37,7 +38,7 @@ export class RecipeEditComponent implements OnInit {
       });
     });
   }
-
+  /* When submitted the recipe is updated on the webpage as well as the database */
   onFormSubmit(form: NgForm) {
     console.log(form);
     this.api.updateRecipe(this.route.snapshot.params['id'], form)
