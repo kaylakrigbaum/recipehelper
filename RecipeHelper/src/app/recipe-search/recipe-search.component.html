@@ -1,3 +1,4 @@
+<!-- navBar -->
 <nav class="navBar">
   <a [routerLink]="['/recipes']" >Home</a>
   <a class="active" [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
@@ -6,42 +7,51 @@
 </nav>
 
 <body>
+  <!-- main body -->
   <div class="main-body" id="body-padding">
 
     <p class="title">Search the web for your favorite Recipes!</p>
 
+    <!-- search-button -->
     <mat-form-field  color='primary' id='search-input' class='full-width' appearance='outline'>
       <mat-label color='red'>Search Recipes</mat-label>
       <input #searchRecipes matInput  [(ngModel)]='searchValue' name='searchRecipes' [value]='searchValue' (keyup.enter)='getEdamamRecipes(searchValue)'>
     </mat-form-field>
     <button mat-raised-button color="primary" (click)='getEdamamRecipes(searchValue)' id='submit-search' type='submit' for='searchRecipes'>Submit</button>
 
+    <!-- search results -->
     <div>
       <div class="example-container mat-elevation-z8">
         <table #table [dataSource]="dataEdamamApi" mat-table>
     
+          <!-- title column -->
           <ng-container matColumnDef="title">
             <th *matHeaderCellDef mat-header-cell>Title</th>
             <td *matCellDef="let element" class="title" mat-cell>{{element.title}} </td>
           </ng-container>
     
+          <!-- favorites column -->
           <ng-container matColumnDef="favorite">
             <mat-header-cell  *matHeaderCellDef > Favorite </mat-header-cell>
             <mat-cell *matCellDef="let row" >
+              <!-- creates a button to favorite -->
               <button mat-raised-button color="primary" (click)='postFavorite(row)' id='post-favorite' type='submit' for='name'>favorite</button>
             </mat-cell>
           </ng-container>
     
+          <!-- icons column -->
           <ng-container matColumnDef="icon">
             <th *matHeaderCellDef mat-header-cell>Icon</th>
             <td *matCellDef="let element" mat-cell> {{element.icon}} </td>
           </ng-container>
     
+          <!-- ingredients column -->
           <ng-container matColumnDef="ingredients">
             <th *matHeaderCellDef mat-header-cell>Ingredients</th>
             <td *matCellDef="let element" mat-cell> {{element.ingredients}} </td>
           </ng-container>
     
+          <!-- instructions column -->
           <ng-container matColumnDef="instructions">
             <th *matHeaderCellDef mat-header-cell>Instructions</th>
             <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>
