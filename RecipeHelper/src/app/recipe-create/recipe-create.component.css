@@ -18,3 +18,9 @@
 .title {
   text-align: center;
 }
+
+.input-layout {
+  color: seagreen;
+  background-color: white;
+  padding-left: 1rem;
+}

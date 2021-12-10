@@ -15,35 +15,37 @@
       </a>
     </div>
     
-    <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
-      <mat-form-field class="example-full-width">
-        <input [errorStateMatcher]="matcher" formControlName="title" matInput
-                placeholder="Title">
-        <mat-error>
-          <span *ngIf="!recipeForm.get('title').valid && recipeForm.get('title').touched">Please enter Title</span>
-        </mat-error>
-      </mat-form-field>
-    </form> 
-
-    <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
-      <mat-form-field class="example-full-width">
-        <input [errorStateMatcher]="matcher" formControlName="ingredients" matInput
-                placeholder="Ingredients">
-        <mat-error>
-          <span *ngIf="!recipeForm.get('ingredients').valid && recipeForm.get('ingredients').touched">Please enter Ingredients</span>
-        </mat-error>
-      </mat-form-field>
-    </form>
-
-    <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
-      <mat-form-field class="example-full-width">
-        <input [errorStateMatcher]="matcher" formControlName="instructions" matInput
-                placeholder="instructions">
-        <mat-error>
-          <span *ngIf="!recipeForm.get('instructions').valid && recipeForm.get('instructions').touched">Please enter Instructions</span>
-        </mat-error>
-      </mat-form-field>
-    </form>
+    <div class="input-layout">
+      <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
+        <mat-form-field class="example-full-width">
+          <input [errorStateMatcher]="matcher" formControlName="title" matInput
+                  placeholder="Title">
+          <mat-error>
+            <span *ngIf="!recipeForm.get('title').valid && recipeForm.get('title').touched">Please enter Title</span>
+          </mat-error>
+        </mat-form-field>
+      </form> 
+  
+      <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
+        <mat-form-field class="example-full-width">
+          <input [errorStateMatcher]="matcher" formControlName="ingredients" matInput
+                  placeholder="Ingredients">
+          <mat-error>
+            <span *ngIf="!recipeForm.get('ingredients').valid && recipeForm.get('ingredients').touched">Please enter Ingredients</span>
+          </mat-error>
+        </mat-form-field>
+      </form>
+  
+      <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
+        <mat-form-field class="example-full-width">
+          <input [errorStateMatcher]="matcher" formControlName="instructions" matInput
+                  placeholder="instructions">
+          <mat-error>
+            <span *ngIf="!recipeForm.get('instructions').valid && recipeForm.get('instructions').touched">Please enter Instructions</span>
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </div>
 
       <div class="button-row">
         <button [disabled]="!recipeForm.valid" color="primary" mat-raised-button type="submit">
