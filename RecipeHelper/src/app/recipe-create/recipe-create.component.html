@@ -9,12 +9,14 @@
   <div class="main-body" id="body-padding">
     <h3 class="title">Create and add Recipes to your favorites list!</h3>
 
+    <!-- BUTTON REROUTES TO SEARCH PAGE -->
     <div class="button-row">
       <a [routerLink]="['/recipe-search']" color="primary" mat-raised-button>
         Back to Search <mat-icon>search</mat-icon>
       </a>
     </div>
     
+    <!-- RECIPE TITLE INPUT -->
     <div class="input-layout">
       <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
         <mat-form-field class="example-full-width">
@@ -26,6 +28,7 @@
         </mat-form-field>
       </form> 
   
+      <!-- RECIPE INGREDIENTS INPUT -->
       <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
         <mat-form-field class="example-full-width">
           <input [errorStateMatcher]="matcher" formControlName="ingredients" matInput
@@ -36,6 +39,7 @@
         </mat-form-field>
       </form>
   
+      <!--  INSTRUCTIONS INPUT -->
       <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
         <mat-form-field class="example-full-width">
           <input [errorStateMatcher]="matcher" formControlName="instructions" matInput
@@ -49,6 +53,7 @@
         <button type="button" (click)="startVoiceRecognition()">Record</button>
       </div>
       
+      <!-- RECORD BUTTON -->
       <ng-template #voicesection>
         <ng-container *ngIf="!voiceActiveSectionError; else failure">
           <ng-container *ngIf="voiceText; else start">
@@ -74,10 +79,11 @@
       </ng-template>
     </div>
 
-      <div class="button-row">
-        <button [disabled]="!recipeForm.valid" color="primary" mat-raised-button type="submit">
-          <mat-icon>save</mat-icon>
-        </button>
-      </div> 
+    <!-- SAVE BUTTON -->
+    <div class="button-row">
+      <button [disabled]="!recipeForm.valid" color="primary" mat-raised-button type="submit">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div> 
   </div>
 </body>
