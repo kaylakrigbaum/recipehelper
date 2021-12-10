@@ -1,11 +1,11 @@
 <html>
+  <nav class="navBar">
+    <a class="active" [routerLink]="['/recipes']" >Home</a>
+    <a [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
+    <a [routerLink]="['/recipe-list']" >My Recipe <mat-icon id="icon-padding">list_alt</mat-icon></a>
+    <a [routerLink]="['/recipe-create']" >Create Recipe <mat-icon id="icon-padding">note_add</mat-icon></a>
+  </nav>
     <body>
-      <nav class="navBar">
-        <a class="active" [routerLink]="['/recipes']" >Home</a>
-        <a [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
-        <a [routerLink]="['/recipe-list']" >My Recipe <mat-icon id="icon-padding">list_alt</mat-icon></a>
-        <a [routerLink]="['/recipe-create']" >Create Recipe <mat-icon id="icon-padding">note_add</mat-icon></a>
-      </nav>
       <div class="main">
         <h1>
           Welcome to Recipe Remedies
