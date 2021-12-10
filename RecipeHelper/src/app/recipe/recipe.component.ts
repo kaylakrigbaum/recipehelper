@@ -20,7 +20,7 @@ export class RecipeComponent implements OnInit {
   dataEdamamApi = [];
 
   favoriteData = [];
-
+  /*Logs in to the api using the ID and KEY*/
   edamamAPI = 'https://api.edamam.com/search?q=';
   edamamID = '&app_id=48518b9b';
   edamamKEY = '&app_key=7753e2c9359b3cded5d000806817c845';
