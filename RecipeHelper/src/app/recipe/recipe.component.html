@@ -1,11 +1,15 @@
 <html>
+  <!-- creates navBar -->
   <nav class="navBar">
+    <!-- class "active" will highlight which page we are curerntly on -->
     <a class="active" [routerLink]="['/recipes']" >Home</a>
+    <!-- router link directs us to a different page -->
     <a [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
     <a [routerLink]="['/recipe-list']" >My Recipe <mat-icon id="icon-padding">list_alt</mat-icon></a>
     <a [routerLink]="['/recipe-create']" >Create Recipe <mat-icon id="icon-padding">note_add</mat-icon></a>
   </nav>
     <body>
+      <!-- Simple body introduces web application -->
       <div class="main-body">
         <h1>
           Welcome to Recipe Remedies
