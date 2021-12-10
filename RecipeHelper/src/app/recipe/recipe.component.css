@@ -1,8 +1,7 @@
-.main-background {
+body {
+  background-color: seagreen;
 }
-html {
-  background-color: rgb(55, 55, 216);
-}
+
 .example-container {
   display: flex;
   flex-direction: column;
