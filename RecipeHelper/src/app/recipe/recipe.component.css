@@ -2,10 +2,8 @@
   background-color: rgba(51, 51, 51, 255);
   color: white;
   text-align: center;
-}
-.title {
-  color: green;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 img {
   display: block;
@@ -23,6 +21,7 @@ img {
   overflow: hidden;
   color: white;
   margin-bottom: 4rem;
+  padding-bottom: 1rem;
 }
 
 .navBar a {
@@ -37,6 +36,7 @@ img {
 .navBar a:hover {
   background-color: #f6d081;
   color: black;
+  height: auto;
 }
 
 /* Add a color to the active/current link */
@@ -44,4 +44,5 @@ img {
   background-color: rgb(55, 55, 216);
   color: white;
   width: auto;
+  height: auto;
 }
