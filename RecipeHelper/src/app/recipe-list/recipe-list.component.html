@@ -13,19 +13,16 @@
   <div class="example-container mat-elevation-z8">
     <table #table [dataSource]="dataStoredRecipes" mat-table>
 
-      <!-- Title Column -->
       <ng-container matColumnDef="title">
         <th *matHeaderCellDef mat-header-cell>Title</th>
         <td *matCellDef="let element" class="title" mat-cell> {{element.title}} </td>
       </ng-container>
 
-      <!-- Title Column -->
       <ng-container matColumnDef="ingredients">
         <th *matHeaderCellDef mat-header-cell>Ingredients</th>
         <td *matCellDef="let element" mat-cell> {{element.ingredients}} </td>
       </ng-container>
 
-      <!-- Author Column -->
       <ng-container matColumnDef="instructions">
         <th *matHeaderCellDef mat-header-cell>Instructions</th>
         <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>
