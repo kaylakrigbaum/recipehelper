@@ -49,19 +49,19 @@
           </mat-error>
         </mat-form-field>
       </form>
-      <div *ngIf="voiceActiveSectionDisabled; else voicesection;">
-        <button type="button" (click)="startVoiceRecognition()">Record</button>
+      <div *ngIf="voiceDisabled; else voicesection;">
+        <button type="button" (click)="startVoice()">Record</button>
       </div>
 
       <!-- RECORD BUTTON -->
       <ng-template #voicesection>
-        <ng-container *ngIf="!voiceActiveSectionError; else failure">
+        <ng-container *ngIf="!voiceError; else failure">
           <ng-container *ngIf="voiceText; else start">
             <span style="color: black;">{{voiceText}}</span>
           </ng-container>
           <ng-template #start>
             <ng-container
-              *ngIf="voiceActiveSectionListening; else beginning">
+              *ngIf="voiceListening; else beginning">
               <span>Listening...</span>
             </ng-container>
             <ng-template #beginning>
@@ -73,8 +73,8 @@
           <span>Didn't catch that</span>
         </ng-template>
         <div>
-          <button (click)="closeVoiceRecognition()">Close</button>
-          <button (click)="startVoiceRecognition()">Restart</button>
+          <button (click)="closeVoice()">Close</button>
+          <button (click)="startVoice()">Restart</button>
         </div>
       </ng-template>
     </div>

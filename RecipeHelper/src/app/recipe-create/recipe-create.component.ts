@@ -20,37 +20,37 @@ export class RecipeCreateComponent implements OnInit {
 
   constructor(private router: Router, private api: ApiService, private formBuilder: FormBuilder, private ngZone: NgZone) {
   }
-  voiceActiveSectionDisabled: boolean = true;
-  voiceActiveSectionError: boolean = false;
-  voiceActiveSectionSuccess: boolean = false;
-  voiceActiveSectionListening: boolean = false;
+  voiceDisabled: boolean = true;
+  voiceError: boolean = false;
+  voiceSuccess: boolean = false;
+  voiceListening: boolean = false;
   voiceText: any;
 
-  initializeVoiceRecognitionCallback(): void {
+  initCallback(): void {
     annyang.addCallback('error', (err) => {
       if(err.error === 'network'){
         this.voiceText = "Internet is required";
         annyang.abort();
-        this.ngZone.run(() => this.voiceActiveSectionSuccess = true);
+        this.ngZone.run(() => this.voiceSuccess = true);
       } else if (this.voiceText === undefined) {
-        this.ngZone.run(() => this.voiceActiveSectionError = true);
+        this.ngZone.run(() => this.voiceError = true);
         annyang.abort();
       }
     });
 
     annyang.addCallback('soundstart', (res) => {
-      this.ngZone.run(() => this.voiceActiveSectionListening = true);
+      this.ngZone.run(() => this.voiceListening = true);
     });
 
     annyang.addCallback('end', () => {
       if (this.voiceText === undefined) {
-        this.ngZone.run(() => this.voiceActiveSectionError = true);
+        this.ngZone.run(() => this.voiceError = true);
         annyang.abort();
       }
     });
 
     annyang.addCallback('result', (userSaid) => {
-      this.ngZone.run(() => this.voiceActiveSectionError = false);
+      this.ngZone.run(() => this.voiceError = false);
 
       let queryText: any = userSaid[0];
 
@@ -58,15 +58,15 @@ export class RecipeCreateComponent implements OnInit {
 
       this.voiceText = queryText;
 
-      this.ngZone.run(() => this.voiceActiveSectionListening = false);
-      this.ngZone.run(() => this.voiceActiveSectionSuccess = true);
+      this.ngZone.run(() => this.voiceListening = false);
+      this.ngZone.run(() => this.voiceSuccess = true);
     });
   }
 
-  startVoiceRecognition(): void {
-    this.voiceActiveSectionDisabled = false;
-    this.voiceActiveSectionError = false;
-    this.voiceActiveSectionSuccess = false;
+  startVoice(): void {
+    this.voiceDisabled = false;
+    this.voiceError = false;
+    this.voiceSuccess = false;
     this.voiceText = undefined;
 
     if (annyang) {
@@ -76,17 +76,17 @@ export class RecipeCreateComponent implements OnInit {
 
       annyang.addCommands(commands);
 
-      this.initializeVoiceRecognitionCallback();
+      this.initCallback();
 
       annyang.start({ autoRestart: false });
     }
   }
 
-  closeVoiceRecognition(): void {
-    this.voiceActiveSectionDisabled = true;
-    this.voiceActiveSectionError = false;
-    this.voiceActiveSectionSuccess = false;
-    this.voiceActiveSectionListening = false;
+  closeVoice(): void {
+    this.voiceDisabled = true;
+    this.voiceError = false;
+    this.voiceSuccess = false;
+    this.voiceListening = false;
     this.voiceText = undefined;
 
     if(annyang){
