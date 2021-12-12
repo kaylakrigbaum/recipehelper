@@ -1,5 +1,9 @@
 # recipehelper
 
+## Report
+## Video
+## Presentation
+
 ## Run Application
 ### 1. cd into RecipeHelper
 ### 2. run "ng serve" 
