@@ -15,7 +15,7 @@
         Back to Search <mat-icon>search</mat-icon>
       </a>
     </div>
-    
+
     <!-- RECIPE TITLE INPUT -->
     <div class="input-layout">
       <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
@@ -26,8 +26,8 @@
             <span *ngIf="!recipeForm.get('title').valid && recipeForm.get('title').touched">Please enter Title</span>
           </mat-error>
         </mat-form-field>
-      </form> 
-  
+      </form>
+
       <!-- RECIPE INGREDIENTS INPUT -->
       <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
         <mat-form-field class="example-full-width">
@@ -38,7 +38,7 @@
           </mat-error>
         </mat-form-field>
       </form>
-  
+
       <!--  INSTRUCTIONS INPUT -->
       <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
         <mat-form-field class="example-full-width">
@@ -52,7 +52,7 @@
       <div *ngIf="voiceActiveSectionDisabled; else voicesection;">
         <button type="button" (click)="startVoiceRecognition()">Record</button>
       </div>
-      
+
       <!-- RECORD BUTTON -->
       <ng-template #voicesection>
         <ng-container *ngIf="!voiceActiveSectionError; else failure">
@@ -80,10 +80,12 @@
     </div>
 
     <!-- SAVE BUTTON -->
-    <div class="button-row">
-      <button [disabled]="!recipeForm.valid" color="primary" mat-raised-button type="submit">
-        <mat-icon>save</mat-icon>
-      </button>
-    </div> 
+    <form (ngSubmit)="onFormSubmit(recipeForm.value)" [formGroup]="recipeForm">
+      <div class="button-row">
+        <button [disabled]="!recipeForm.valid" color="primary" mat-raised-button type="submit">
+          <mat-icon>save</mat-icon>
+        </button>
+      </div>
+    </form>
   </div>
 </body>
