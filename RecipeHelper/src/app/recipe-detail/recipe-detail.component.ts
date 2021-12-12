@@ -8,7 +8,7 @@ import {ApiService} from '../api.service';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
-
+/*Structures recipe*/
   recipe = {
     title: '',
     ingredients: '',
@@ -22,7 +22,7 @@ export class RecipeDetailComponent implements OnInit {
   ngOnInit() {
     this.getRecipeDetails(this.route.snapshot.params['id']);
   }
-
+ /*Retrieves the recipe details from the data base */
   getRecipeDetails(id) {
     this.api.getRecipe(id)
       .subscribe(data => {
@@ -30,7 +30,7 @@ export class RecipeDetailComponent implements OnInit {
         this.recipe = data;
       });
   }
-
+/* Deletes the recipe from the webpage as well as the data base*/
   deleteRecipe(id) {
     this.api.deleteRecipe(id)
       .subscribe(res => {

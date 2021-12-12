@@ -1,30 +1,28 @@
 <nav class="navBar">
-  <a  class="active" [routerLink]="['/recipes']" >Home</a>
-  <a  [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
-  <a  [routerLink]="['/recipe-list']" >My Recipe <mat-icon id="icon-padding">list_alt</mat-icon></a>
-  <a  [routerLink]="['/recipe-create']" >Create Recipe <mat-icon id="icon-padding">note_add</mat-icon></a>
+  <a [routerLink]="['/recipes']" >Home</a>
+  <a [routerLink]="['/recipe-search']" >Search Recipe <mat-icon id="icon-padding">search</mat-icon></a>
+  <a class="active" [routerLink]="['/recipe-list']" >My Recipe <mat-icon id="icon-padding">list_alt</mat-icon></a>
+  <a [routerLink]="['/recipe-create']" >Create Recipe <mat-icon id="icon-padding">note_add</mat-icon></a>
 </nav>
 
-
-<h3 class="title">View, Edit, and Delete your Recipes!</h3>
+<body>
+  <div class="main-body" id="body-padding">
+    <h3 class="title">View, Edit, and Delete your Recipes!</h3>
 
 <div>
   <div class="example-container mat-elevation-z8">
     <table #table [dataSource]="dataStoredRecipes" mat-table>
 
-      <!-- Title Column -->
       <ng-container matColumnDef="title">
         <th *matHeaderCellDef mat-header-cell>Title</th>
         <td *matCellDef="let element" class="title" mat-cell> {{element.title}} </td>
       </ng-container>
 
-      <!-- Title Column -->
       <ng-container matColumnDef="ingredients">
         <th *matHeaderCellDef mat-header-cell>Ingredients</th>
         <td *matCellDef="let element" mat-cell> {{element.ingredients}} </td>
       </ng-container>
 
-      <!-- Author Column -->
       <ng-container matColumnDef="instructions">
         <th *matHeaderCellDef mat-header-cell>Instructions</th>
         <td *matCellDef="let element" mat-cell> {{element.instructions}} </td>
@@ -35,3 +33,5 @@
     </table>
   </div>
 </div>
+  </div>
+</body>
